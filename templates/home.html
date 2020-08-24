@@ -1,0 +1,50 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container-xl">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+
+	      <div class="table-title">
+	        <div class="row">
+	          <div class="col-sm-6">
+	            <h2><b>Employees</b></h2>
+	          </div>
+	          <div class="col-sm-6">
+	            <button type="button"
+	                class="btn btn-warning employee-create" data-url="{% url 'create_view' %}">
+	                <i class="material-icons">&#xE147;</i><span>Add New Employee</span>
+	            </button>
+	          </div>
+	        </div>
+	      </div>
+
+	      <table class="table table-striped table-hover" id="EmployeeTable">
+	        <thead>
+	          <tr>
+	            <th>Full Name</th>
+	            <th>Email</th>
+	            <th>Phone</th>
+	            <th>Location</th>
+	            <th>Actions</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	          {% include 'includes/list_employees.html' %}
+	        </tbody>
+	      </table>
+
+	    </div>
+	  </div>
+	</div>
+
+  <!-- THE MODAL WE WILL BE USING -->
+  <div class="modal fade" id="EmployeeModalForm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+
+
+{% endblock %}

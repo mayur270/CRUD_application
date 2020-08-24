@@ -1,0 +1,16 @@
+<form method="post" action="{% url 'update_view' form.instance.pk %}" class="employee-update-form" id='editEmployeeModal'>
+  {% csrf_token %}
+  <div class="modal-header">
+    <h4 class="modal-title">Edit Employee Details</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    {% include 'includes/create_update_form.html' %}
+  </div>
+  <div class="modal-footer">
+    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+    <input type="submit" class="btn btn-info" value="Save">
+  </div>
+</form>

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/account/login.css' %}">
+<!--===============================================================================================-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+<!--===============================================================================================-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="{% static 'img/account/bg1.svg' %}">
+		</div>
+		<div class="login-content">
+			<form action="" method='POST' autocomplete="off">
+				{% csrf_token %}
+				<img src="{% static 'img/account/avatar1.svg' %}">
+				<h2 class="title">SNAPSHOT</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+									 	<h5>Username</h5>
+										<input type="text" name="login" autofocus='autofocus'maxlength='150' required id='id_login' class='input'>
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i">
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+										<input type="password" name="password" required id='id_password' class='input'>
+            	   </div>
+            	</div>
+          	<input type="submit" class="btn" value="Login">
+						{% if form.errors %}
+							{% for field in form %}
+									{% for error in field.errors %}
+											<div class="alert alert-error">
+													<strong>{{ error|escape }}</strong>
+											</div>
+									{% endfor %}
+							{% endfor %}
+							{% for error in form.non_field_errors %}
+									<div class="alert alert-error">
+											<strong>{{ error|escape }}</strong>
+									</div>
+							{% endfor %}
+						{% endif %}
+        </form>
+      </div>
+  </div>
+<!--===============================================================================================-->
+  <script src="{% static 'js/account/login.js' %}"></script>
+<!--===============================================================================================-->
+</body>
+</html>
